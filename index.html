@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио | Frontend Developer</title>
+    <title>Портфолио | Ибраимов Азимжан</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -39,42 +39,64 @@
             padding: 0 15px;
         }
 
-        /* Шапка (Hero Section) */
+        /* --- ОБНОВЛЕННАЯ ШАПКА (HERO SECTION) --- */
         header {
             background: linear-gradient(135deg, var(--primary), #1a252f);
             color: white;
-            padding: 100px 0;
+            padding: 80px 0 120px; /* Немного увеличили отступы */
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
 
         header h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.2;
         }
 
-        header p {
+        /* Стиль для текста биографии */
+        header .bio {
             font-size: 1.2rem;
             color: #ecf0f1;
+            margin-bottom: 15px;
+            max-width: 800px; /* Ограничиваем ширину текста для читаемости */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Выделение навыков жирным */
+        header .bio strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Текст-подсказка снизу */
+        header .hint {
+            font-size: 1rem;
+            color: #bdc3c7;
+            margin-top: 30px;
             margin-bottom: 30px;
+            font-style: italic;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--accent);
             color: white;
-            padding: 12px 30px;
+            padding: 15px 40px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
             transform: translateY(-3px);
             background-color: #2980b9;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.5);
         }
 
         /* Секция проектов */
@@ -127,7 +149,7 @@
         .bg-geo { background: linear-gradient(45deg, #11998e, #38ef7d); }
         .bg-aurora { background: linear-gradient(45deg, #4568dc, #b06ab3); }
         .bg-first { background: linear-gradient(45deg, #ff9966, #ff5e62); }
-        .bg-js { background: linear-gradient(45deg, #f7971e, #ffd200); } /* Желтый для JS */
+        .bg-js { background: linear-gradient(45deg, #f7971e, #ffd200); } 
 
         .card-content {
             padding: 25px;
@@ -199,7 +221,8 @@
 
         /* Адаптив */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
+            header h1 { font-size: 2rem; }
+            header .bio { font-size: 1rem; padding: 0 10px; }
             .project-card { margin-bottom: 20px; }
         }
     </style>
@@ -208,8 +231,20 @@
 
     <header>
         <div class="container">
-            <h1>Frontend Developer</h1>
-            <p>HTML • CSS • JavaScript • API</p>
+            <h1>Fronted Developer</h1>
+            <h1>Привет! <br>Меня зовут Ибраимов Азимжан</h1>
+            
+            <p class="bio">
+                Я начинающий разработчик сайтов. Создаю проекты с нуля, используя <br>
+                <strong>HTML, CSS, JavaScript, API и Сложную логику</strong>.
+            </p>
+            
+            <p class="bio">
+                А также я ученик 1-го курса <strong>Инновационного колледжа города Алматы (INTC)</strong>.
+            </p>
+
+            <p class="hint">Пример моих работ вы увидите снизу 👇</p>
+            
             <a href="#projects" class="btn">Смотреть проекты</a>
         </div>
     </header>
@@ -307,7 +342,7 @@
                             Интерактивный список задач. Реализована логика добавления/удаления элементов и сохранение данных в браузере.
                         </p>
                         <div class="card-links">
-                        <a href="https://to-do-list-k3xz.onrender.com" target="_blank">TO DO LIST</a>
+                            <a href="https://to-do-list-k3xz.onrender.com" target="_blank">TO DO LIST</a>
                             <a href="#" class="disabled">Код</a>
                         </div>
                     </div>
@@ -319,7 +354,7 @@
 
     <footer>
         <div class="container">
-            <p id="copyright">© 2026 Мое Портфолио</p>
+            <p id="copyright">© 2026 Ибраимов Азимжан</p>
             <p>Свяжитесь со мной: <a href="mailto:email@example.com">email@example.com</a></p>
         </div>
     </footer>
@@ -340,7 +375,7 @@
         // 2. Автоматическое обновление года в футере
         const yearSpan = document.getElementById('copyright');
         const currentYear = new Date().getFullYear();
-        yearSpan.innerHTML = `© ${currentYear} Мое Портфолио. Все права защищены.`;
+        yearSpan.innerHTML = `© ${currentYear} Ибраимов Азимжан. Все права защищены.`;
 
         // 3. Приветствие в консоли (для рекрутеров)
         console.log("%cПривет! Рад видеть тебя в консоли.", "color: #3498db; font-size: 16px; font-weight: bold;");
