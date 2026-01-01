@@ -39,13 +39,13 @@
             padding: 0 15px;
         }
 
-        /* --- ОБНОВЛЕННАЯ ШАПКА (HERO SECTION) --- */
+        /* --- ШАПКА (HERO SECTION) --- */
         header {
             background: linear-gradient(135deg, var(--primary), #1a252f);
             color: white;
-            padding: 80px 0 120px; /* Немного увеличили отступы */
+            padding: 80px 0 120px;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
         }
 
         header h1 {
@@ -55,23 +55,20 @@
             line-height: 1.2;
         }
 
-        /* Стиль для текста биографии */
         header .bio {
             font-size: 1.2rem;
             color: #ecf0f1;
             margin-bottom: 15px;
-            max-width: 800px; /* Ограничиваем ширину текста для читаемости */
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Выделение навыков жирным */
         header .bio strong {
             color: var(--accent);
             font-weight: 600;
         }
 
-        /* Текст-подсказка снизу */
         header .hint {
             font-size: 1rem;
             color: #bdc3c7;
@@ -80,26 +77,96 @@
             font-style: italic;
         }
 
+        /* Блок для кнопок в шапке */
+        .header-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         .btn {
             display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 15px 40px;
+            padding: 15px 35px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, background 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            font-size: 1rem;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
 
-        .btn:hover {
+        /* Основная кнопка (синяя) */
+        .btn-primary {
+            background-color: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
             transform: translateY(-3px);
             background-color: #2980b9;
-            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.5);
+            border-color: #2980b9;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
 
-        /* Секция проектов */
+        /* Вторичная кнопка (прозрачная с белой обводкой) */
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255, 0.6);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            background-color: white;
+            color: var(--primary);
+            border-color: white;
+        }
+
+        /* --- СЕКЦИЯ НАВЫКОВ (SKILLS) --- */
+        .skills-section {
+            padding: 60px 0 20px;
+            background-color: var(--bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Адаптивная сетка */
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .skill-item p {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* --- СЕКЦИЯ ПРОЕКТОВ --- */
         .portfolio-section {
             padding: 60px 0 100px;
         }
@@ -109,16 +176,17 @@
             margin-bottom: 50px;
             font-size: 2rem;
             color: var(--primary);
+            position: relative;
+            display: inline-block;
+            width: 100%;
         }
 
-        /* Сетка проектов */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        /* Карточка проекта */
         .project-card {
             background: var(--card-bg);
             border-radius: 15px;
@@ -133,7 +201,6 @@
             transform: translateY(-10px);
         }
 
-        /* Имитация картинки (цветной блок) */
         .card-image {
             height: 180px;
             display: flex;
@@ -145,7 +212,6 @@
             letter-spacing: 1px;
         }
 
-        /* Цвета для заглушек картинок */
         .bg-geo { background: linear-gradient(45deg, #11998e, #38ef7d); }
         .bg-aurora { background: linear-gradient(45deg, #4568dc, #b06ab3); }
         .bg-first { background: linear-gradient(45deg, #ff9966, #ff5e62); }
@@ -208,7 +274,6 @@
             pointer-events: none;
         }
 
-        /* Подвал */
         footer {
             background: var(--primary);
             color: white;
@@ -219,10 +284,10 @@
         
         footer a { color: var(--accent); text-decoration: none; }
 
-        /* Адаптив */
         @media (max-width: 768px) {
             header h1 { font-size: 2rem; }
             header .bio { font-size: 1rem; padding: 0 10px; }
+            .skills-grid { grid-template-columns: repeat(3, 1fr); }
             .project-card { margin-bottom: 20px; }
         }
     </style>
@@ -231,7 +296,7 @@
 
     <header>
         <div class="container">
-            <h1>Fronted Developer</h1>
+            <h1>Frontend Developer</h1>
             <h1>Привет! <br>Меня зовут Ибраимов Азимжан</h1>
             
             <p class="bio">
@@ -245,9 +310,53 @@
 
             <p class="hint">Пример моих работ вы увидите снизу 👇</p>
             
-            <a href="#projects" class="btn">Смотреть проекты</a>
+            <div class="header-buttons">
+                <a href="#projects" class="btn btn-primary">Смотреть проекты</a>
+                
+                <a href="resume.pdf" download class="btn btn-secondary">
+                    📄 Скачать резюме
+                </a>
+            </div>
         </div>
     </header>
+
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Технические навыки</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                    <p>HTML5</p>
+                </div>
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                    <p>CSS3</p>
+                </div>
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                    <p>Git</p>
+                </div>
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
+                    <p>VS Code</p>
+                </div>
+
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+                    <p>Figma</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="projects" class="portfolio-section">
         <div class="container">
