@@ -39,7 +39,7 @@
             padding: 0 15px;
         }
 
-        /* --- ШАПКА (HERO SECTION) --- */
+        /* --- ШАПКА --- */
         header {
             background: linear-gradient(135deg, var(--primary), #1a252f);
             color: white;
@@ -77,7 +77,7 @@
             font-style: italic;
         }
 
-        /* Блок для кнопок в шапке */
+        /* Кнопки в шапке */
         .header-buttons {
             display: flex;
             justify-content: center;
@@ -96,7 +96,6 @@
             cursor: pointer;
         }
 
-        /* Основная кнопка (синяя) */
         .btn-primary {
             background-color: var(--accent);
             color: white;
@@ -111,7 +110,6 @@
             box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
 
-        /* Вторичная кнопка (прозрачная с белой обводкой) */
         .btn-secondary {
             background-color: transparent;
             color: white;
@@ -125,7 +123,7 @@
             border-color: white;
         }
 
-        /* --- СЕКЦИЯ НАВЫКОВ (SKILLS) --- */
+        /* --- СЕКЦИЯ НАВЫКОВ --- */
         .skills-section {
             padding: 60px 0 20px;
             background-color: var(--bg);
@@ -133,7 +131,7 @@
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Адаптивная сетка */
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             gap: 30px;
             max-width: 900px;
             margin: 0 auto;
@@ -212,10 +210,18 @@
             letter-spacing: 1px;
         }
 
+        /* Цвета для заглушек */
         .bg-geo { background: linear-gradient(45deg, #11998e, #38ef7d); }
         .bg-aurora { background: linear-gradient(45deg, #4568dc, #b06ab3); }
         .bg-first { background: linear-gradient(45deg, #ff9966, #ff5e62); }
         .bg-js { background: linear-gradient(45deg, #f7971e, #ffd200); } 
+        /* Новый стиль для OSINT (Хакерский) */
+        .bg-osint { 
+            background: linear-gradient(135deg, #000000, #0a460a); 
+            color: #00ff41; 
+            text-shadow: 0 0 5px #00ff41;
+            font-family: monospace;
+        }
 
         .card-content {
             padding: 25px;
@@ -312,7 +318,6 @@
             
             <div class="header-buttons">
                 <a href="#projects" class="btn btn-primary">Смотреть проекты</a>
-                
                 <a href="resume.pdf" download class="btn btn-secondary">
                     📄 Скачать резюме
                 </a>
@@ -329,27 +334,22 @@
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
                     <p>HTML5</p>
                 </div>
-
                 <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
                     <p>CSS3</p>
                 </div>
-
                 <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
                     <p>JavaScript</p>
                 </div>
-
                 <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
                     <p>Git</p>
                 </div>
-
                 <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code">
                     <p>VS Code</p>
                 </div>
-
                 <div class="skill-item">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
                     <p>Figma</p>
@@ -362,6 +362,25 @@
         <div class="container">
             <h2 class="section-title">Мои работы</h2>
             <div class="projects-grid">
+
+                <article class="project-card">
+                    <div class="card-image bg-osint">OSINT v4.0</div>
+                    <div class="card-content">
+                        <h3>OSINT Phone Analyzer</h3>
+                        <div class="tech-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Regex</span>
+                            <span class="tag">DOM</span>
+                        </div>
+                        <p class="description">
+                            Хакерская консоль для анализа номеров. Определение оператора/страны, валидация, имитация терминала, история поиска и ссылки на мессенджеры.
+                        </p>
+                        <div class="card-links">
+                            <a href="https://osint-checker.onrender.com" target="_blank">🕵️‍♂️ Взлом</a>
+                            <a href="https://github.com/Azimzhan-cmd/OSINT-CHECKER" target="_blank">💻 Код</a>
+                        </div>
+                    </div>
+                </article>
 
                 <article class="project-card">
                     <div class="card-image bg-geo">ECO GEO</div>
@@ -471,7 +490,6 @@
     <script>
         /* --- 2. JAVASCRIPT --- */
 
-        // 1. Плавный скролл для якорных ссылок
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -481,12 +499,10 @@
             });
         });
 
-        // 2. Автоматическое обновление года в футере
         const yearSpan = document.getElementById('copyright');
         const currentYear = new Date().getFullYear();
         yearSpan.innerHTML = `© ${currentYear} Ибраимов Азимжан. Все права защищены.`;
 
-        // 3. Приветствие в консоли (для рекрутеров)
         console.log("%cПривет! Рад видеть тебя в консоли.", "color: #3498db; font-size: 16px; font-weight: bold;");
         console.log("Если нужен сайт, пиши на почту!");
 
